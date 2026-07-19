@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Result</title>
+
+    <style>
+        body{
+            font-family:Arial, sans-serif;
+            background:#f2f2f2;
+            margin:20px;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h1,h2{
+            text-align:center;
+            color:#2196F3;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        .btn{
+            text-decoration:none;
+            background:#2196F3;
+            color:white;
+            padding:10px 15px;
+            border-radius:5px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Student Result</h1>
+
+{% if student %}
+
+<h2>{{ student[1] }}</h2>
+
+<p><b>Roll No :</b> {{ student[2] }}</p>
+<p><b>Department :</b> {{ student[3] }}</p>
+
+<table>
+
+<tr>
+    <th>Subject</th>
+    <th>Grade</th>
+    <th>Points</th>
+</tr>
+
+{% for mark in marks %}
+<tr>
+    <td>{{ mark[0] }}</td>
+    <td>{{ mark[1] }}</td>
+    <td>{{ mark[2] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<h2>
+CGPA :
+{% if marks %}
+    {{ marks[0][3] }}
+{% else %}
+    Not Available
+{% endif %}
+</h2>
+
+{% else %}
+
+<h2>No Result Found</h2>
+
+{% endif %}
+
+<br>
+
+<a href="/logout" class="btn">Logout</a>
+<a href="/profile" class="btn">My Profile</a>
+
+</div>
+
+</body>
+</html>

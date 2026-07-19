@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View All CGPA</title>
+
+    <style>
+        body{
+            font-family:Arial, sans-serif;
+            background:#f2f2f2;
+            margin:20px;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:blue;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table, th, td{
+            border:1px solid black;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+        }
+
+        th, td{
+            padding:10px;
+            text-align:center;
+        }
+
+        .back{
+            text-decoration:none;
+            background:blue;
+            color:white;
+            padding:10px 15px;
+            border-radius:5px;
+        }
+
+        .back:hover{
+            background:darkblue;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Students CGPA</h1>
+
+<a href="/dashboard" class="back">Back to Dashboard</a>
+
+<table>
+
+<tr>
+    <th>Student Name</th>
+    <th>Roll No</th>
+    <th>CGPA</th>
+</tr>
+
+{% for mark in marks %}
+<tr>
+    <td>{{ mark[0] }}</td>
+    <td>{{ mark[1] }}</td>
+    <td>{{ mark[2] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

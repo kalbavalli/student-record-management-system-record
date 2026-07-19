@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+            margin:0;
+            padding:20px;
+        }
+
+        .container{
+            width:50%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+            box-sizing:border-box;
+        }
+
+        button{
+            padding:10px 20px;
+            background:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .cancel{
+            display:inline-block;
+            margin-left:10px;
+            text-decoration:none;
+            padding:10px 20px;
+            background:red;
+            color:white;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+    <input type="hidden" name="id" value="{{ student[0] }}">
+
+    <label>Name</label>
+    <input type="text" name="name" value="{{ student[1] }}" required>
+
+    <label>Roll Number</label>
+    <input type="text" name="roll_no" value="{{ student[2] }}" required>
+
+    <label>Department</label>
+    <input type="text" name="department" value="{{ student[3] }}" required>
+
+    <label>Grade</label>
+    <input type="text" name="grade"  value="{{ student[4] }}" required>
+
+    <label>Result</label>
+    <input type="text" name="result" value="{{ student[5] }}" required>
+    
+
+
+    <button type="submit">Update</button>
+    <a href="{{ url_for('home') }}" class="cancel">Cancel</a>
+
+</form>
+
+</div>
+
+</body>
+</html>

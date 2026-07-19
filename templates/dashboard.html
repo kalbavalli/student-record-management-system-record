@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Record Management System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+        }
+
+        h1{
+            text-align:center;
+            margin-top:30px;
+        }
+
+        .container{
+            width:80%;
+            margin:auto;
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+            margin-top:40px;
+        }
+
+        .btn{
+            text-decoration:none;
+            color:white;
+            text-align:center;
+            padding:20px;
+            border-radius:8px;
+            font-size:22px;
+            font-weight:bold;
+        }
+
+        .blue{background:#2196F3;}
+        .green{background:#4CAF50;}
+        .orange{background:#ff9800;}
+        .purple{background:#9c27b0;}
+        .cyan{background:#00BCD4;}
+        .brown{background:#795548;}
+        .pink{background:#E91E63;}
+        .gray{background:#607D8B;}
+    </style>
+
+</head>
+
+<body>
+
+<h1>Student Record Management System</h1>
+<div class="stats">
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <div class="card">
+        <h2>{{ total_students }}</h2>
+        <p>Students</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_teachers }}</h2>
+        <p>Teachers</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_courses }}</h2>
+        <p>Courses</p>
+    </div>
+
+    <div class="card">
+        <h2>{{ total_notices }}</h2>
+        <p>Notices</p>
+    </div>
+   <div class="card">
+    
+    
+
+
+<div class="container">
+
+<a href="/add_student" class="btn blue">Add Student</a>
+
+<a href="/students" class="btn blue">View Students</a>
+
+<a href="/teachers" class="btn orange">Teacher Management</a>
+
+<a href="/marks" class="btn cyan">Marks Entry</a>
+
+
+<a href="/view_all_marks" class="btn cyan">View Marks</a>
+
+
+<a href="/courses" class="btn green">Course Management</a>
+
+<a href="/attendance" class="btn purple">Attendance</a>
+
+<a href="/fees" class="btn brown">Fee Management</a>
+
+<a href="/exams" class="btn pink">Exam Management</a>
+
+<a href="/notice" class="btn gray">Notice Board</a>
+
+<a href="/logout" class="btn gray">Logout</a>
+
+</div>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Students', 'Teachers', 'Courses', 'Notices'],
+        datasets: [{
+            data: [
+                {{ total_students }},
+                {{ total_teachers }},
+                {{ total_courses }},
+                {{ total_notices }}
+            ],
+            backgroundColor: [
+                '#2196F3',
+                '#4CAF50',
+                '#FF9800',
+                '#E91E63'
+            ]
+        }]
+    }
+});
+</script>
+
+
+</body>
+</html>

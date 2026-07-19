@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notice Board</title>
+</head>
+<body>
+
+<h1>Notice Board</h1>
+
+<form action="/add_notice" method="POST">
+
+    <input type="text" name="title" placeholder="Notice Title" required>
+
+    <br><br>
+
+    <textarea name="message" placeholder="Notice Message" rows="5" cols="40" required></textarea>
+
+    <br><br>
+
+    <input type="date" name="posted_date" required>
+
+    <br><br>
+
+    <button type="submit">Post Notice</button>
+
+</form>
+
+<hr>
+
+<h2>All Notices</h2>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Message</th>
+    <th>Date</th>
+</tr>
+
+{% for notice in notices %}
+<tr>
+    <td>{{ notice[0] }}</td>
+    <td>{{ notice[1] }}</td>
+    <td>{{ notice[2] }}</td>
+    <td>{{ notice[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

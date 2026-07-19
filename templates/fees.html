@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fee Management</title>
+</head>
+<body>
+
+<h1>Fee Management</h1>
+
+<form action="/add_fee" method="POST">
+
+    <label>Student</label><br>
+
+    <select name="student_id">
+        {% for student in students %}
+        <option value="{{ student[0] }}">
+            {{ student[1] }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <input type="number" name="amount" placeholder="Amount" required>
+
+    <br><br>
+
+    <input type="date" name="paid_date" required>
+
+    <br><br>
+
+    <select name="status">
+        <option>Paid</option>
+        <option>Pending</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Save</button>
+
+</form>
+
+<hr>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Student ID</th>
+<th>Amount</th>
+<th>Paid Date</th>
+<th>Status</th>
+</tr>
+
+{% for fee in fees %}
+
+<tr>
+<td>{{ fee[0] }}</td>
+<td>{{ fee[1] }}</td>
+<td>{{ fee[2] }}</td>
+<td>{{ fee[3] }}</td>
+<td>{{ fee[4] }}</td>
+</tr>
+
+{% endfor %}s
+
+</table>
+
+<br>
+
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>

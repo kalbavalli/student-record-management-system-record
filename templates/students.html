@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record Management System</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f2f2f2;
+            margin:0;
+            padding:20px;
+        }
+
+        .container{
+            width:90%;
+            margin:auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h1,h2{
+            text-align:center;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin:8px 0;
+        }
+
+        button{
+            padding:10px 20px;
+            background:green;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:darkgreen;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th{
+            background:#4CAF50;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+
+        .edit{
+            background:orange;
+            color:white;
+            padding:6px 10px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .delete{
+            background:red;
+            color:white;
+            padding:6px 10px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .view{
+            background:blue;
+            color:white;
+            padding:6px 10px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Record Management System</h1>
+
+<!-- NAVIGATION -->
+<a href="/my_result">View My Result</a> |
+<a href="/marks">Add Marks (CGPA)</a> |
+<a href="/logout">Logout</a>
+
+<hr>
+
+<!-- SEARCH -->
+<form method="GET" action="/">
+    <input type="text" name="search" placeholder="Search by Name or Roll No">
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+
+<!-- ADD STUDENT FORM -->
+<h2>Add Student</h2>
+
+<form action="/add" method="POST">
+    <input type="text" name="name" placeholder="Enter Student Name" required>
+    <input type="text" name="roll_no" placeholder="Enter Roll Number" required>
+    <input type="text" name="department" placeholder="Enter Department" required>
+    <input type="text" name="grade" placeholder="Enter Grade" required>
+    <input type="text" name="result" placeholder="Enter Result" required>
+
+    <button type="submit">Add Student</button>
+</form>
+
+<hr>
+
+<!-- STUDENT TABLE -->
+<h2>Student Records</h2>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Roll No</th>
+    <th>Department</th>
+    <th>Grade</th>
+    <th>Result</th>
+    <th>Action</th>
+</tr>
+
+<tbody>
+    {% for student in students %}
+    <tr>
+        <td>{{ student[0] }}</td>
+        <td>{{ student[1] }}</td>
+        <td>{{ student[2] }}</td>
+        <td>{{ student[3] }}</td>
+        <td>{{ student[4] }}</td>
+        <td>{{ student[5] }}</td>
+
+        <td>
+            <a href="/edit/{{ student[0] }}" class="edit">Edit</a>
+            <a href="/delete/{{ student[0] }}" class="delete">Delete</a>
+            
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</body>
+</html>

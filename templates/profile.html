@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+
+    <style>
+        body{
+            font-family:Arial;
+            background:#f2f2f2;
+        }
+
+        .container{
+            width:60%;
+            margin:auto;
+            margin-top:40px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h1{
+            text-align:center;
+            color:#2196F3;
+        }
+
+        p{
+            font-size:20px;
+        }
+
+        a{
+            text-decoration:none;
+            background:green;
+            color:white;
+            padding:10px 15px;
+            border-radius:5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Profile</h1>
+
+<p><b>Name :</b> {{ student[1] }}</p>
+
+<p><b>Roll No :</b> {{ student[2] }}</p>
+
+<p><b>Department :</b> {{ student[3] }}</p>
+
+<p><b>Grade :</b> {{ student[4] }}</p>
+
+<p><b>Result :</b> {{ student[5] }}</p>
+
+<br>
+
+<a href="/my_result">Back</a>
+
+</div>
+
+</body>
+</html>
